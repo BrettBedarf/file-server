@@ -5,10 +5,18 @@
   "main": "index.js",
   "author": "Brett Bedarf",
   "license": "MIT",
+  "scripts": {
+    "start:dev": "ts-node ./src/server.ts",
+    "start:prod": "node ./dist/server.js",
+    "build": "./node_modules/.bin/tsc",
+    "dev": "./node_modules/.bin/nodemon --inspect"
+  },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1"
   },
   "devDependencies": {
+    "nodemon": "^2.0.19",
     "typescript": "^4.7.4"
   }
 }

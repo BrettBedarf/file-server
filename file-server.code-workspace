@@ -1,9 +1,19 @@
 {
 	"folders": [
       {
+         "name": "✨ file-server",
          "path": "."
       },
       {
+         "name": "🚀 server",
+         "path": "apps/server"
+      },
+      {
+         "name": "🚀 web",
+         "path": "apps/web"
+      },
+      {
+         "name": "gizmoshop-mern",
          "path": "../gizmoshop-mern"
       }
    ]
