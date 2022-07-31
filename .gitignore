@@ -31,3 +31,7 @@ yarn-error.log*
 
 # turbo
 .turbo
+apps/server/dist
+apps/server/.vscode
+apps/server/src/server.ts
+apps/server/tsconfig.tsbuildinfo
