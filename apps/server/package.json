@@ -6,9 +6,9 @@
   "author": "Brett Bedarf",
   "license": "MIT",
   "scripts": {
-    "start:dev": "ts-node ./src/server.ts",
+    "start:dev": "ts-node -r tsconfig-paths/register ./src/server.ts",
     "start:prod": "node ./dist/server.js",
-    "build": "./node_modules/.bin/tsc",
+    "build": "./node_modules/.bin/tsc && tsc-alias",
     "dev": "./node_modules/.bin/nodemon --inspect"
   },
   "dependencies": {
@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.19",
+    "tsc-alias": "^1.7.0",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4"
   }
 }

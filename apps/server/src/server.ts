@@ -1,11 +1,8 @@
 import express from 'express';
 require('dotenv').config();
-
-//startup
-// dotenv.config();
 const app = express();
 
-// Middleware to be able to use json
+// Middleware to be able to use jsonå
 app.use(express.json());
 
 app.get('/', (req, res) => {
