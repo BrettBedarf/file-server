@@ -3,8 +3,8 @@ import { FileUploaderRepo } from './file-uploader.repo.types';
 import { mockFileUpl } from '@/use-cases/__mocks__/mock-files';
 import fs from 'fs';
 import { PassThrough, Stream } from 'stream';
-import FsFileUploader from '@/repos/fs-file-uploader.repo';
 import { resolve } from 'path';
+import FsFileUploader from './fs-file-uploader.repo';
 
 jest.mock('fs');
 const mockCreateWriteStream = fs.createWriteStream as jest.MockedFunction<
@@ -80,23 +80,5 @@ describe('Filesystem uploader repo', () => {
 		const expectedPath = resolve(`${LOCAL_PATH_PREFIX}/${testPath}`);
 
 		expect(mockCreateWriteStream).toHaveBeenCalledWith(expectedPath);
-	});
-
-	test('adds absolute file path as url to response', async () => {
-		const testPath = 'test/path';
-		const { meta, data } = mockFileUpl;
-		const { folderPath, ...restMeta } = meta;
-		const file = {
-			data: mockReadable,
-			meta: { ...restMeta, folderPath: testPath.split('/') },
-		};
-		const uplRespProm = fileUploader.upload(file);
-
-		mockEvents(mockReadable);
-
-		const uplResp = await uplRespProm;
-		const expectedPath = resolve(`${LOCAL_PATH_PREFIX}/${testPath}`);
-
-		expect(uplResp.url).toBe(expectedPath);
 	});
 });

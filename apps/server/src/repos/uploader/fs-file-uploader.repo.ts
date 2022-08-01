@@ -1,10 +1,13 @@
-import { FileMetaUpload, FileUpload } from '@/entities/file.entity.types';
-import { RepoError } from './errors.repo';
+import {
+	FileMetaUpload,
+	FileUpload,
+	ProviderTypes,
+} from '@/entities/file.entity.types';
 import { injectable } from 'inversify';
 import { FileUploaderRepo } from './file-uploader.repo.types';
-import { ProviderTypes } from '../entities/file.entity.types';
 import fs from 'fs';
 import { resolve } from 'path';
+import { RepoError } from '../errors.repo';
 
 /** File system provider */
 @injectable()
@@ -38,7 +41,6 @@ class FsFileUploader implements FileUploaderRepo {
 
 		return {
 			...file.meta,
-			url: qualifiedPath,
 			providerType: ProviderTypes.FS,
 		};
 	}

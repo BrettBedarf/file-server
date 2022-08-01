@@ -10,8 +10,6 @@ export interface FileUpload {
 type ProviderMeta = {
 	providerType: ProviderTypes;
 	providerId?: number;
-	/** provider url i.e. http://s3-us-east-1.amazonaws.com... */
-	url?: string;
 };
 
 /** All data needed to save meta to db after uploading file to provider */
