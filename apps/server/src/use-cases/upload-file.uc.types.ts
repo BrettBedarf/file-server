@@ -1,8 +1,5 @@
-import { FileUpload, UploadedFile } from '../entities/file.entity.types';
-import { UseCaseErrorTypes, UseCaseOps, UseCaseResult } from './uc.types';
+import { FileUpload, UploadedFileMeta } from '../entities/file.entity.types';
 
-export interface UploadFilesUseCase {
-	upload: (
-		file: FileUpload
-	) => Promise<UseCaseResult<UploadedFile, UseCaseOps.UPLOAD_FILES>>;
+export interface UploadFileUseCase {
+	upload: (file: FileUpload) => Promise<UploadedFileMeta>;
 }

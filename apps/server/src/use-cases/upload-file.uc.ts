@@ -1,56 +1,28 @@
 import { TYPES } from '@/ioc/types';
-import { FileUpload, UploadedFile } from '@/entities/file.entity.types';
+import { FileUpload } from '@/entities/file.entity.types';
 import { FileUploaderRepo } from '@/repos/file-uploader.repo.types';
 import { injectable, inject } from 'inversify';
-import { UseCaseErrorTypes, UseCaseOps, UseCaseResult } from './uc.types';
-import { UploadFilesUseCase } from './upload-file.uc.types';
-import { serializeError } from 'serialize-error';
+import { UploadFileUseCase } from './upload-file.uc.types';
+import { FileMetaRepo } from '@/repos/file-meta.repo.types';
 
 @injectable()
-class UploadFiles implements UploadFilesUseCase {
+class UploadFile implements UploadFileUseCase {
 	private _uploader: FileUploaderRepo;
 
 	public constructor(
-		@inject(TYPES.FileUploaderRepo) uploader: FileUploaderRepo
+		@inject(TYPES.FileUploaderRepo) uploader: FileUploaderRepo,
+		@inject(TYPES.FileMetaRepo) private _fileMetaRepo: FileMetaRepo
 	) {
 		this._uploader = uploader;
 	}
+	public async upload(file: FileUpload) {
+		// upload file to provider
+		const uploadedFile = await this._uploader.upload(file);
+		// save file meta to db
+		const insertedMeta = await this._fileMetaRepo.insert(uploadedFile);
 
-	public async upload(
-		file: FileUpload
-	): Promise<UseCaseResult<UploadedFile, UseCaseOps>> {
-		const result = await this._uploader.upload(file);
-
-		if (result.success) {
-			// TODO: save file metadata in db
-			console.log(
-				`Successfully saved file ${result.result.meta.id} to ${this._uploader.providerName} provider`
-			);
-			return {
-				success: true,
-				result: Array.isArray(result.result)
-					? result.result
-					: [result.result],
-			};
-		} else {
-			console.error(
-				`Error uploading file to ${
-					result.error.provider
-				} provider:\n ${serializeError(result.error)}`
-			);
-			return {
-				success: false,
-				error: {
-					errorType: UseCaseErrorTypes.PROVIDER_ERROR,
-					message: result.error.message,
-					details:
-						process.env.NODE_ENV === 'production'
-							? undefined
-							: result.error.stack,
-				},
-			};
-		}
+		return insertedMeta;
 	}
 }
 
-export default UploadFiles;
+export default UploadFile;
