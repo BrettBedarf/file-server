@@ -5,7 +5,7 @@ import { Container } from 'inversify';
 import { FileUploaderRepo } from '@/repos/uploader/file-uploader.repo.types';
 import { mock } from 'jest-mock-extended';
 import { TYPES } from '@/ioc/types';
-import { FileMetaRepo } from '@/repos/meta/file-meta.repo.types';
+import { FileMetaRepo } from '@/repos/meta-storage/file-meta.repo.types';
 
 const mockFileUploader = mock<FileUploaderRepo>();
 const mockFileMetaRepo = mock<FileMetaRepo>();
