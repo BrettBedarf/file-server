@@ -1,4 +1,4 @@
-import { FileMetaUpload, FileUpload } from '../entities/file.entity.types';
+import { FileMetaUpload, FileUpload } from '../../entities/file.entity.types';
 /**
  * Uploads one of more files to storage provider
  */

@@ -1,9 +1,9 @@
 import { TYPES } from '@/ioc/types';
 import { FileUpload } from '@/entities/file.entity.types';
-import { FileUploaderRepo } from '@/repos/file-uploader.repo.types';
+import { FileUploaderRepo } from '@/repos/uploader/file-uploader.repo.types';
 import { injectable, inject } from 'inversify';
 import { UploadFileUseCase } from './upload-file.uc.types';
-import { FileMetaRepo } from '@/repos/file-meta.repo.types';
+import { FileMetaRepo } from '@/repos/meta/file-meta.repo.types';
 
 @injectable()
 class UploadFile implements UploadFileUseCase {

@@ -1,10 +1,10 @@
 import 'reflect-metadata';
-import { FileUploaderRepo } from '@/repos/file-uploader.repo.types';
-import FsFileUploader from '@/repos/fs-file-uploader.repo';
+import { FileUploaderRepo } from '@/repos/uploader/file-uploader.repo.types';
 import UploadFile from '@/use-cases/upload-file.uc';
 import { Container } from 'inversify';
 import { TYPES } from './types';
 import { UploadFileUseCase } from '../use-cases/upload-file.uc.types';
+import FsFileUploader from '@/repos/uploader/fs-file-uploader.repo';
 
 // fs provider needs to be instance because has non-injected (optional) param
 const fsUploader = new FsFileUploader();
