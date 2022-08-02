@@ -8,7 +8,7 @@
    "scripts": {
       "start:dev": "ts-node -r tsconfig-paths/register ./src/server.ts",
       "start:prod": "node ./dist/server.js",
-      "build": "./node_modules/.bin/tsc && tsc-alias",
+      "build": "./node_modules/.bin/tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
       "dev": "./node_modules/.bin/nodemon --inspect",
       "test:int": "jest \"^(.*/)*(.*\\.)*(test)\\.ts$\" --passWithNoTests",
       "test:unit": "jest \"^(.*/)*(.*\\.)*(spec)\\.ts$\" --passWithNoTests"
@@ -18,7 +18,7 @@
       "express": "^4.18.1",
       "jest-mock-extended": "^2.0.7",
       "mongoose": "^6.5.0",
-      "serialize-error": "^11.0.0"
+      "serialize-error": "^8.0.0"
    },
    "devDependencies": {
       "@types/jest": "^28.1.6",
