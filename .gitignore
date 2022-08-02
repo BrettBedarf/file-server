@@ -37,3 +37,4 @@ apps/server/dist
 apps/server/.vscode
 apps/server/tsconfig.tsbuildinfo
 apps/server/.env
+apps/server/tsconfig.build.tsbuildinfo

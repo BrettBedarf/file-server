@@ -18,7 +18,7 @@ export type FileMetaUpload = FileMetaBase & ProviderMeta;
 /** Response from stored file meta including db id */
 export type UploadedFileMeta = FileMetaUpload & {
 	/** database ID */
-	_id: number;
+	_id: string;
 };
 /**
  * Primary file source metadata

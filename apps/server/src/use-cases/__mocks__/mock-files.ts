@@ -28,5 +28,5 @@ export const mockUploadedFile: FileMetaUpload = {
 
 export const mockUploadedMeta: UploadedFileMeta = {
 	...mockUploadedFile,
-	_id: 1,
+	_id: '1',
 };

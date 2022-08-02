@@ -1,5 +1,5 @@
-import { FileMetaBase, UploadedFileMeta } from '@/entities/file.entity.types';
+import { FileMetaUpload, UploadedFileMeta } from '@/entities/file.entity.types';
 
 export interface FileMetaRepo {
-	insert: (file: FileMetaBase) => Promise<UploadedFileMeta>;
+	insert: (file: FileMetaUpload) => Promise<UploadedFileMeta>;
 }

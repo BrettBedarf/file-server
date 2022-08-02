@@ -7,4 +7,4 @@ const uploadFiles = container.get<UploadFileUseCase>(TYPES.UploadFileUseCase);
 
 const files = [{}] as FileUpload[];
 
-uploadFiles.upload(files);
+// uploadFiles.upload(files);
