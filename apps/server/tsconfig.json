@@ -1,7 +1,7 @@
 {
 	"extends": "tsconfig/node.json",
 	"include": ["src"],
-	"exclude": ["node_modules", "scripts/**","**/*.test.*", "**/__mocks__/*", "**/__tests__/*"],
+	"exclude": ["node_modules",],
 	"compilerOptions": {
 		"rootDir": "./src",
 		"outDir": "./dist",
@@ -13,5 +13,6 @@
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
       "types": ["node", "jest"],
+      "skipLibCheck": true
 	},
 }

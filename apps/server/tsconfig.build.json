@@ -1,0 +1,14 @@
+{
+	"extends": "./tsconfig.json",
+	"exclude": [
+		"node_modules",
+		"scripts/**",
+		"**/*.test.*",
+		"**/*.spec.*",
+		"**/__mocks__/*",
+		"**/__tests__/*"
+	],
+	"compilerOptions": {
+		// "types": []
+	}
+}
