@@ -10,6 +10,8 @@ import { FileMetaUpload } from '@/entities/file.entity.types';
 import { Model } from 'mongoose';
 import MongoFileMetaRepo from '@/repos/meta-storage/mongo-file-meta.repo';
 import { FileMetaRepo } from '@/repos/meta-storage/file-meta.repo.types';
+import { FileController as IFileController } from '@/controllers/file.types.ctrl';
+import FileController from '@/controllers/file.ctrl';
 
 // fs provider needs to be instance because has non-injected (optional) param
 const fsUploader = new FsFileUploader();
@@ -23,5 +25,6 @@ container
 	.bind<Model<FileMetaUpload>>(TYPES.FileMetaMongoModel)
 	.toConstantValue(FileMetaModel);
 container.bind<FileMetaRepo>(TYPES.FileMetaRepo).to(MongoFileMetaRepo);
+container.bind<IFileController>(TYPES.FileController).to(FileController);
 
 export default container;

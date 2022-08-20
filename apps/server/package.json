@@ -16,13 +16,13 @@
    "dependencies": {
       "dotenv": "^16.0.1",
       "express": "^4.18.1",
-      "express-async-handler": "^1.2.0",
-      "express-error-handler": "^1.1.0",
+      "formidable": "^2.0.1",
       "jest-mock-extended": "^2.0.7",
       "mongoose": "^6.5.0",
       "serialize-error": "^8.0.0"
    },
    "devDependencies": {
+      "@types/formidable": "^2.0.5",
       "@types/jest": "^28.1.6",
       "inversify": "^6.0.1",
       "jest": "^28.1.3",

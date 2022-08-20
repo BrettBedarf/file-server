@@ -1,5 +1,9 @@
 import { TYPES } from '@/ioc/types';
-import { FileUpload } from '@/entities/file.entity.types';
+import {
+	FileMetaBase,
+	FileMetaUpload,
+	FileUpload,
+} from '@/entities/file.entity.types';
 import { FileUploaderRepo } from '@/repos/uploader/file-uploader.repo.types';
 import { injectable, inject } from 'inversify';
 import { UploadFileUseCase } from './upload-file.uc.types';
@@ -22,6 +26,15 @@ class UploadFile implements UploadFileUseCase {
 		const insertedMeta = await this._fileMetaRepo.insert(uploadedFile);
 
 		return insertedMeta;
+	}
+	public async makeNewMeta(fileMeta: FileMetaUpload) {
+		// save file meta to db
+		const insertedMeta = await this._fileMetaRepo.insert(fileMeta);
+		return insertedMeta;
+	}
+	public getFileWriteStream() {
+		// return this._uploader.getFileWriteStream();
+		return;
 	}
 }
 
